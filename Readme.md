@@ -1,7 +1,7 @@
 ### Ground Rules
 
 - All new components should be added to the `scripts/components` folder.
-- All components should have seprate css file in the `styles` folder.
+- All components should have seprate css file in the `styles` file.
 
 ### Linting
 
