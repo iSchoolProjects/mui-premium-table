@@ -1,0 +1,15 @@
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  div:nth-of-type(3) {
+    width: calc(42% - 1rem);
+  }
+  div:nth-of-type(2) {
+    width: calc(25% - 1rem);
+  }
+  div:nth-of-type(1) {
+    width: calc(33% - 1rem);
+  }
+}
