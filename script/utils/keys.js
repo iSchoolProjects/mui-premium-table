@@ -2,7 +2,7 @@ export function extractKeys(obj, parentKey = '') {
   let keys = [];
 
   for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
+    if (obj[key]) {
       const formattedKey = parentKey ? `${parentKey}.${key}` : key;
 
       if (typeof obj[key] === 'object' && obj[key] !== null) {
