@@ -1,4 +1,6 @@
-export function createDropdown() {
+import createNode from '../utils/createNode';
+
+export default function createDropdown() {
   const select = document.createElement('select');
   select.classList.add('select');
 
@@ -23,12 +25,12 @@ export function createDropdown() {
       opt.className = option.class;
     }
 
-    select.appendChild(opt);
+    // select.appendChild(opt);
   });
 
   const output = document.createElement('div');
-  output.appendChild(select);
-  document.body.appendChild(output);
+  //   output.appendChild(select);
+  //   document.body.appendChild(output);
 }
 
-document.addEventListener('DOMContentLoaded', createDropdown);
+// document.addEventListener('DOMContentLoaded', createDropdown);
