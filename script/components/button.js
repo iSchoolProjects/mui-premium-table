@@ -1,7 +1,7 @@
-import createNode from "../utils/createNode";
+import createNode from '../utils/createNode';
 
-export default function Button(parent, ...rest){
-    const container = createNode(parent,{tag:'div'},{type:'text'})
-    const buttonHolder = createNode(container,{tag:'div'})
-    const button = createNode(buttonHolder, {tag: 'button', text:'+  Add Filter'})
+export default function Button(parent) {
+  const container = createNode(parent, {tag: 'div'});
+  const buttonHolder = createNode(container, {tag: 'div'});
+  createNode(buttonHolder, {tag: 'button', text: '+  Add Filter'});
 }

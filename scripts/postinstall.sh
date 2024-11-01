@@ -2,7 +2,7 @@
 
 HOOK_DIR=".git/hooks"
 HOOK_PATH="$HOOK_DIR/pre-commit"
-
+rm -f "$HOOK_PATH"
 # Create hooks directory if it doesn't exist
 mkdir -p "$HOOK_DIR"
 
@@ -12,16 +12,25 @@ if [ ! -f "$HOOK_PATH" ]; then
     cat > "$HOOK_PATH" << 'EOL'
 #!/bin/bash
 
-# Run your pre-commit checks here
-npm run lint
-npm run format
-npm run stylelint
+echo "Running ESLint..."
+eslint_result=0
+npm run lint || eslint_result=$?
 
-# Get the exit code
-exit_code=$?
+echo "Running Prettier..."
+prettier_result=0
+npm run prettier --check . || prettier_result=$?
 
-# Exit with the combined status
-exit $exit_code
+echo "Running Stylelint..."
+stylelint_result=0
+npm run stylelint || stylelint_result=$?
+
+if [ "$eslint_result" -ne 0 ] || [ "$prettier_result" -ne 0 ] || [ "$stylelint_result" -ne 0 ]; then
+  echo "Code does not meet linting or formatting standards. Please correct the issues."
+  exit 1
+fi
+
+echo "Lint and format checks passed successfully."
+exit 0
 EOL
 
     # Make the hook executable
