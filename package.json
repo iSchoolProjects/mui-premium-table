@@ -5,16 +5,25 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite --port 3000",
-    "lint": "eslint ."
+    "lint": "eslint . --ignore-pattern .prettierrc.js",
+    "format": "prettier . --check --config .prettierrc.js",
+    "format:fix": "prettier . --write --config .prettierrc.js",
+    "stylelint": "stylelint \"**/*.css\"",
+    "prettier": "prettier . --write --config .prettierrc.js",
+    "postinstall": "bash ./scripts/postinstall.sh"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "globals": "^15.11.0",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1",
     "vite": "^5.4.10"
   }
 }
