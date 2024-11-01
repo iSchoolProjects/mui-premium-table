@@ -2,14 +2,30 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  width: 35rem;
+  /* width: 35rem; */
+  /* border: 1px solid black; */
+  p {
+    width: 1rem;
+  }
 
-  div:nth-of-type(3) {
+  .input-holder {
     width: calc(42% - 1rem);
   }
-  div:nth-of-type(2) {
-    width: calc(25% - 1rem);
+  .select-holder div:nth-of-type(1) {
+    width: calc(23% - 1rem);
   }
-  div:nth-of-type(1) {
-    width: calc(33% - 1rem);
+  .select-holder:nth-of-type(2) {
+    width: calc(31% - 1rem);
+  }
+  button {
+    width: 8rem;
+    padding-block: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #16b142;
   }
 }
