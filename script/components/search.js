@@ -9,8 +9,8 @@
 // ele je elemet citav od kljuca
 
 export default function Search(data, key, operator, value) {
-    switch(operator){
-            case 'contains':
-                return data.filter(ele=>ele[key].contains(value))
-            }
-        }
+  switch (operator) {
+    case 'contains':
+      return data.filter((ele) => ele[key].contains(value));
+  }
+}
