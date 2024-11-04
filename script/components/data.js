@@ -449,3 +449,11 @@
     },
   },
 ];
+
+
+// filter(data,key,operator,value){
+//   switch(operatore){
+//     case 'contains':
+//         return data.filter(ele=>ele[key].contains(value))
+//   }
+// }
