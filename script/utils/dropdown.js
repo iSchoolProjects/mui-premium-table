@@ -1,9 +1,8 @@
+import * as styles from '../../styles/dropdown.css';
 import createNode from '../utils/createNode';
 
-export default function createDropdown() {
-  const select = document.createElement('select');
-  select.classList.add('select');
-
+export default function createDropdown(parent, onChange, current) {
+  const select = createNode(parent, {tag: 'div', classes: [styles.select]});
   const options = [
     {value: 'unsort', text: 'Unsort'},
     {value: 'sort_asc', text: 'Sort by ASC'},
@@ -11,26 +10,37 @@ export default function createDropdown() {
     {value: 'filter', text: 'Filter'},
     {value: 'hide', text: 'Hide'},
     {value: 'show_columns', text: 'Show Columns'},
-    {value: 'group_by_code', text: 'Group by Code', class: 'group-by-code-border'},
+    {value: 'group_by_code', text: 'Group by Code'},
     {value: 'pin_left', text: 'Pin to Left'},
     {value: 'pin_right', text: 'Pin to Right'},
   ];
 
   options.forEach((option) => {
-    const opt = document.createElement('option');
-    opt.value = option.value;
-    opt.textContent = option.text;
+    const optionNode = createNode(select, {
+      tag: 'div',
+      text: option.text,
+      value: option.value,
+      classes: ['option'],
+    });
 
-    if (option.class) {
-      opt.className = option.class;
+    for (const option of options) {
+      createNode(optionNode, {
+        tag: 'div',
+        classes: [],
+        text: option,
+        dataset: current.option === option ? current : null,
+      }).addEventListener('click', function () {
+        if (onChange) {
+          onChange(option.value);
+        }
+      });
     }
+    // optionNode.addEventListener('click', function () {
 
-    // select.appendChild(opt);
+    //   if (onChange) {
+    //     onChange(option.value);
+    //   }
+    // });
   });
-
-  const output = document.createElement('div');
-  //   output.appendChild(select);
-  //   document.body.appendChild(output);
+  return select;
 }
-
-// document.addEventListener('DOMContentLoaded', createDropdown);
