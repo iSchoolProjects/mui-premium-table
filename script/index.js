@@ -1,6 +1,35 @@
-import Filter from './components/filter';
+import '../styles/index.css';
+import Header from './components/header';
 
-function onChange() {}
 const root = document.getElementById('root');
+const keys = [
+  'Code',
+  'Account type',
+  'Name',
+  'Street name',
+  'House number',
+  'Postal code',
+  'City',
+  'Email address',
+  'Phone number',
+  'Mobile number',
+  'Actions',
+];
 
-Filter(root, ['code', 'location'], onChange);
+function wrapper(state, setState) {
+  root.innerHTML = '';
+  Header(root, keys, state, setState);
+}
+useState({}, wrapper);
+
+function useState(initial, render) {
+  let state = initial;
+
+  function setState(newState) {
+    if (typeof newState === 'function') state = newState(state);
+    else state = newState;
+    render(state, setState);
+  }
+  render(state, setState);
+  return [state, setState];
+}
