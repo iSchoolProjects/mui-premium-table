@@ -1,12 +1,14 @@
 /**
  *
- * @param {*} parentNode
+ * @param {HTMLElement} parentNode
  * @param {*} nodeProps
  * @returns {HTMLElement}
  */
 export default function createNode(parentNode, nodeProps) {
   if (!nodeProps['tag']) throw Error('Tag is required');
+
   const element = document.createElement(nodeProps['tag']);
+
   if (nodeProps['classes'] && Array.isArray(nodeProps['classes'])) {
     const classes = nodeProps['classes'];
     for (let i = 0; i < classes.length; i++) {
@@ -27,6 +29,11 @@ export default function createNode(parentNode, nodeProps) {
   if (nodeProps['for']) element.htmlFor = nodeProps['for'];
   if (nodeProps['placeholder']) element.placeholder = nodeProps['placeholder'];
   if (nodeProps['tabindex']) element.tabindex = nodeProps['tabindex'];
+  if (nodeProps['dataset']) {
+    for (const key in nodeProps['dataset']) {
+      element.dataset[key] = nodeProps.dataset[key];
+    }
+  }
   parentNode.append(element);
   return element;
 }
