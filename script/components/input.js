@@ -5,7 +5,5 @@ export default function Input(parent, {...rest}) {
   container.classList.add('input-holder');
   const filterHolder = createNode(container, {tag: 'div'});
   createNode(filterHolder, {tag: 'label', text: 'Value'});
-  createNode(filterHolder, {tag: 'input', type: 'text', placeholder: 'Filter value', ...rest});
-
-  return container;
+  return createNode(filterHolder, {tag: 'input', type: 'text', ...rest});
 }

@@ -2,9 +2,8 @@ import createNode from '../utils/createNode';
 
 export default function Select(parent, {label, options, onChange}) {
   // const label = ['Columns', 'Operator']
-  const container = createNode(parent, {tag: 'div'});
-  container.classList.add('select-holder');
-  const filterHolder = createNode(container, {tag: 'div'});
+
+  const filterHolder = createNode(parent, {tag: 'div'});
   createNode(filterHolder, {tag: 'label', text: label});
   const select = createNode(filterHolder, {tag: 'select'});
   createNode(select, {tag: 'option'});
@@ -13,5 +12,5 @@ export default function Select(parent, {label, options, onChange}) {
     createNode(select, {tag: 'option', value: option, text: option});
   }
   select.addEventListener('change', onChange);
-  return container;
+  return select;
 }

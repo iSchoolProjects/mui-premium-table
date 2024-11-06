@@ -30,4 +30,8 @@
     color: #ffffff;
     background-color: #16b142;
   }
+
+  .inactive {
+    display: none;
+  }
 }
