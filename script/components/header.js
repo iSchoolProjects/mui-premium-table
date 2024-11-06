@@ -8,7 +8,6 @@ export default function Header(headerParent, keys, current, setCurrent) {
   });
 
   for (const key of keys) {
-    console.log(current);
     createNode(container, {
       tag: 'div',
       classes: [styles.item],
@@ -19,7 +18,3 @@ export default function Header(headerParent, keys, current, setCurrent) {
     });
   }
 }
-
-// prvi klik sort na gore
-// drugi klik sort na dole
-// treci klik ugasi sort

@@ -1,8 +1,5 @@
 import '../styles/index.css';
-import Filter from './components/filter';
 import Header from './components/header';
-
-function onChange() { }
 
 const root = document.getElementById('root');
 const keys = [
@@ -23,7 +20,7 @@ function wrapper(state, setState) {
   root.innerHTML = '';
   Header(root, keys, state, setState);
 }
-const [state, setState] = useState({}, wrapper);
+useState({}, wrapper);
 
 function useState(initial, render) {
   let state = initial;

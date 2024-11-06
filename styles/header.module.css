@@ -10,7 +10,7 @@
 }
 
 .item {
-  font-family: 'Calibri', sans-serif;
+  font-family: Calibri, sans-serif;
   font-size: large;
   font-weight: 600;
   color: #637381;
@@ -21,7 +21,7 @@
   &[data-sort='1']::after,
   &[data-sort='2']::after {
     content: '';
-    background-image: url(/assets/images/arrow-up.svg);
+    background-image: url('/assets/images/arrow-up.svg');
     width: 20px;
     height: 20px;
     display: block;
