@@ -1,5 +1,6 @@
 import * as styles from '../../styles/dropdown.module.css';
 import createNode from '../utils/createNode';
+
 export default function createDropdown(parent, state, setState) {
   const select = createNode(parent, {tag: 'div', classes: [styles.select]});
   const options = [
