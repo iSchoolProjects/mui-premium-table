@@ -9,6 +9,10 @@
   border-top-right-radius: 16px;
 }
 
+.key {
+  display: flex;
+}
+
 .item {
   font-family: Calibri, sans-serif;
   font-size: large;
@@ -32,5 +36,18 @@
 
   &[data-sort='2']::after {
     transform: rotate(180deg);
+  }
+}
+
+.dropdown {
+  cursor: pointer;
+
+  img {
+    visibility: hidden;
+  }
+
+  &:hover img,
+  &[data-dropdown-open='true'] img {
+    visibility: visible;
   }
 }
