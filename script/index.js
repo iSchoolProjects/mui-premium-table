@@ -1,5 +1,6 @@
 import '../styles/index.css';
 import Header from './components/header';
+import createDropdown from './utils/dropdown';
 
 const root = document.getElementById('root');
 const keys = [
@@ -19,6 +20,7 @@ const keys = [
 function wrapper(state, setState) {
   root.innerHTML = '';
   Header(root, keys, state, setState);
+  createDropdown(root, state, setState);
 }
 useState({}, wrapper);
 

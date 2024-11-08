@@ -12,6 +12,10 @@
   &:hover {
     background-color: #f4f6f8;
   }
+
+  &[data-active='true'] {
+    background-color: #f4f6f8;
+  }
 }
 
 .option:nth-of-type(1) {
