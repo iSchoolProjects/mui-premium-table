@@ -33,8 +33,7 @@ function wrapper(state, setState) {
   );
   createDropdown(root, state, setState);
 }
-useState({left: [], right: [],filters: [{columns: '', operators: '', value: ''}]}, wrapper);
-
+useState({left: [], right: [], filters: [{columns: '', operators: '', value: ''}]}, wrapper);
 
 function useState(initial, render) {
   let state = initial;
