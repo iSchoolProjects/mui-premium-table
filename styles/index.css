@@ -28,6 +28,7 @@ label {
 
 .filter-holder {
   width: 100%;
+  max-width: 35rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -40,6 +41,7 @@ label {
   border-top: 1px solid #a5a3a3;
   display: flex;
   justify-content: end;
+  gap: 1rem;
 }
 
 .exit-holder {
@@ -49,6 +51,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: end;
+  margin-right: auto;
 }
 
 p {

@@ -9,8 +9,8 @@
 // ele je elemet citav od kljuca
 import isAnyOf from './isAnyOf.js';
 
-export default function Search(data, key, operator, value) {
-  switch (operator) {
+function filterData(data, {columns: key, operators, value}) {
+  switch (operators) {
     case 'contains':
       return data.filter((ele) => ele[key] && typeof ele[key] === 'string' && ele[key].includes(value));
     case 'equals':
@@ -29,4 +29,24 @@ export default function Search(data, key, operator, value) {
     case 'isAnyOf':
       return data.filter((ele) => typeof ele[key] === 'string' && isAnyOf(ele[key], value));
   }
+}
+export default function search(data, filters, operator) {
+  if (!operator && filters.length === 1) return filterData(data, filters[0]);
+  let filteredData = [...data];
+  if (operator.toUpperCase() === 'AND') {
+    for (const filter of filters) {
+      filteredData = filterData(filteredData, filter);
+    }
+  } else {
+    const temp = [];
+    for (const filter of filters) {
+      const res = filterData(data, filter);
+      for (const r of res) {
+        if (!temp.find((k) => k.id === r.id)) temp.push(r);
+      }
+    }
+    return temp;
+  }
+
+  return filteredData;
 }

@@ -3,7 +3,6 @@ import Filter from './components/filter';
 import Header from './components/header';
 
 const root = document.getElementById('root');
-Filter(root, ['code', 'location', 'name']);
 const keys = [
   'Code',
   'Account type',
@@ -21,8 +20,18 @@ const keys = [
 function wrapper(state, setState) {
   root.innerHTML = '';
   Header(root, keys, state, setState);
+  Filter(
+    root,
+    [
+      {label: 'code', value: 'code'},
+      {label: 'location', value: 'location'},
+      {label: 'name', value: 'name'},
+    ],
+    state,
+    setState
+  );
 }
-useState({}, wrapper);
+useState({filters: [{columns: '', operators: '', value: ''}]}, wrapper);
 
 function useState(initial, render) {
   let state = initial;
