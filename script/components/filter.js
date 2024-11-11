@@ -12,9 +12,9 @@ import Select from './select';
 // import search from './search.js'
 
 export default function Filter(parent, options, state, setState) {
-  const filterContainer = createNode(parent, {tag: 'div', classes: ['filter-container']});
+  const filterContainer = createNode(parent, {tag: 'div', classes: [styles.filterContainer]});
 
-  const container = createNode(parent, {tag: 'div', classes: [styles.filter, 'cont']});
+  const container = createNode(filterContainer, {tag: 'div', classes: [styles.filter, 'cont']});
 
   for (const index in state.filters) {
     const filterHolder = createNode(filterContainer, {tag: 'div', classes: ['filter-holder']});
