@@ -1,6 +1,7 @@
 import '../styles/index.css';
 import Filter from './components/filter';
 import Header from './components/header';
+import createDropdown from './utils/dropdown';
 
 const root = document.getElementById('root');
 const keys = [
@@ -30,8 +31,10 @@ function wrapper(state, setState) {
     state,
     setState
   );
+  createDropdown(root, state, setState);
 }
-useState({filters: [{columns: '', operators: '', value: ''}]}, wrapper);
+useState({left: [], right: [],filters: [{columns: '', operators: '', value: ''}]}, wrapper);
+
 
 function useState(initial, render) {
   let state = initial;
