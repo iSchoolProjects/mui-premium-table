@@ -11,6 +11,7 @@
 
 .key {
   display: flex;
+  order: var(--x-order);
 }
 
 .item {

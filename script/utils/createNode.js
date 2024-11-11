@@ -34,6 +34,11 @@ export default function createNode(parentNode, nodeProps) {
       element.dataset[key] = nodeProps.dataset[key];
     }
   }
+  if (nodeProps['styles']) {
+    for (const key in nodeProps['styles']) {
+      element.style = `${key}:${nodeProps['styles'][key]}`;
+    }
+  }
   parentNode.append(element);
   return element;
 }
