@@ -4,5 +4,5 @@ export default function Exit(parent) {
   const container = createNode(parent, {tag: 'div'});
   container.classList.add('exit-holder');
   const filterHolder = createNode(container, {tag: 'div'});
-  createNode(filterHolder, {tag: 'p', text: 'X'});
+  return createNode(filterHolder, {tag: 'img', src: './assets/images/Exit.svg'});
 }

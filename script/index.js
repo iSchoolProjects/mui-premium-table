@@ -1,4 +1,5 @@
 import '../styles/index.css';
+import Filter from './components/filter';
 import Header from './components/header';
 import createDropdown from './utils/dropdown';
 
@@ -20,9 +21,19 @@ const keys = [
 function wrapper(state, setState) {
   root.innerHTML = '';
   Header(root, keys, state, setState);
+  Filter(
+    root,
+    [
+      {label: 'code', value: 'code'},
+      {label: 'location', value: 'location'},
+      {label: 'name', value: 'name'},
+    ],
+    state,
+    setState
+  );
   createDropdown(root, state, setState);
 }
-useState({left: [], right: []}, wrapper);
+useState({left: [], right: [], filters: [{columns: '', operators: '', value: ''}]}, wrapper);
 
 function useState(initial, render) {
   let state = initial;
