@@ -8,11 +8,21 @@ export default function createDropdown(parent, state, setState) {
     dataset: {dropdownOpen: state.dropdownOpen},
     styles: {'--menu-item': state.menuItem},
   });
+
   const options = [
     {value: 'unsort', text: 'Unsort', onclick: () => setState((prev) => ({...prev, sort: 0}))},
     {value: 1, text: 'Sort by ASC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 1}))},
     {value: 2, text: 'Sort by DESC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 2}))},
-    {value: 'filter', text: 'Filter'},
+    {
+      value: 'filter',
+      text: 'Filter',
+      onclick: () =>
+        setState((prev) => ({
+          ...prev,
+          filterOpen: !prev.filterOpen,
+          dropdownOpen: false,
+        })),
+    },
     {value: 'hide', text: 'Hide'},
     {value: 'show_columns', text: 'Show Columns'},
     {value: 'group_by_code', text: 'Group by Code'},

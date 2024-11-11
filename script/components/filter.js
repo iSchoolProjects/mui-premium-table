@@ -1,20 +1,18 @@
 import * as styles from '../../styles/filter.module.css';
 import createNode from '../utils/createNode';
-import Button from './button';
 import data from './data';
 import Exit from './exit';
 import Input from './input';
 import Operator from './operator';
 import search from './search';
-// import Search from './search';
 import Select from './select';
 
-// import search from './search.js'
-
 export default function Filter(parent, options, state, setState) {
-  const filterContainer = createNode(parent, {tag: 'div', classes: [styles.filterContainer]});
-
-  const container = createNode(filterContainer, {tag: 'div', classes: [styles.filter, 'cont']});
+  const filterContainer = createNode(parent, {
+    tag: 'div',
+    classes: [styles.filterContainer],
+    dataset: {filterOpen: state.filterOpen},
+  });
 
   for (const index in state.filters) {
     const filterHolder = createNode(filterContainer, {tag: 'div', classes: ['filter-holder']});
@@ -68,13 +66,16 @@ export default function Filter(parent, options, state, setState) {
     });
   }
 
-  const buttonHolder = createNode(container, {tag: 'div'});
-  buttonHolder.classList.add('button-holder');
-  const filterData = createNode(buttonHolder, {tag: 'button', text: 'Filter Data', classes: ['filter-data']});
+  const buttonHolder = createNode(filterContainer, {tag: 'div', classes: [styles.buttonHolder]});
+  const filterData = createNode(buttonHolder, {tag: 'button', text: 'Filter Data', classes: [styles.filterButton]});
   filterData.addEventListener('click', function () {
     search(data, state.filters, state.operator);
+
+    if (state.filterOpen) {
+      setState((prev) => ({...prev, filterOpen: false}));
+    }
   });
-  const addFilter = Button(buttonHolder, {});
+  const addFilter = createNode(buttonHolder, {tag: 'button', classes: [styles.filterButton], text: '+ Add filter'});
   addFilter.addEventListener('click', () => {
     setState((prev) => ({...prev, filters: prev.filters.concat({columns: '', operators: '', value: ''})}));
   });
