@@ -1,8 +1,16 @@
 .select {
-  width: 10%;
+  width: 10rem;
   background-color: #dddddd;
   border-radius: 8px;
   padding: 8px 0;
+  display: none;
+  position: absolute;
+  top: 5rem;
+  left: calc(1rem + calc(var(--menu-item) * 8rem));
+
+  &[data-dropdown-open='true'] {
+    display: block;
+  }
 }
 
 .option {

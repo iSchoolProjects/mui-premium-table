@@ -24,10 +24,20 @@ export default function Header(headerParent, keys, current, setCurrent) {
     classes: [styles.header],
   });
 
-  for (const key of keys) {
+  for (const idx in keys) {
+    const key = keys[idx];
+    let left = 0;
+    let right = 0;
+    if (current.left.includes(key)) {
+      left = -1 * current.left.length + current.left.indexOf(key);
+    }
+    if (current.right.includes(key)) {
+      right = current.right.length + current.right.indexOf(key);
+    }
     const keyHolder = createNode(container, {
       tag: 'div',
       classes: [styles.key],
+      styles: {'--x-order': left || right},
     });
     createNode(keyHolder, {
       tag: 'div',
@@ -35,7 +45,9 @@ export default function Header(headerParent, keys, current, setCurrent) {
       text: key,
       dataset: current.key === key ? current : null,
     }).addEventListener('click', function () {
-      setCurrent((prev) => (prev.key === key ? {...prev, sort: (prev.sort + 1) % 3} : {...prev, key, sort: 1, dropdownOpen: false}));
+      setCurrent((prev) =>
+        prev.key === key ? {...prev, sort: (prev.sort + 1) % 3} : {...prev, key, sort: 1, dropdownOpen: false, menuItem: undefined}
+      );
     });
     const imageHolder = createNode(keyHolder, {
       tag: 'div',
@@ -47,7 +59,7 @@ export default function Header(headerParent, keys, current, setCurrent) {
       src: './assets/images/ellipsis-vertical.svg',
       dataset: current.key === key ? current : null,
     }).addEventListener('click', function () {
-      setCurrent((prev) => ({...prev, key, dropdownOpen: true}));
+      setCurrent((prev) => ({...prev, key, dropdownOpen: true, menuItem: idx}));
     });
   }
 }
