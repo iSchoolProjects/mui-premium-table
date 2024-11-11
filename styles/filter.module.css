@@ -1,16 +1,16 @@
 .filterContainer {
   display: none;
-}
-
-.filter {
-  display: none;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 35rem;
 
   &[data-filter-open='true'] {
     display: flex;
+    flex-direction: column;
+    width: 35rem;
   }
+}
+
+.filter {
+  flex-wrap: wrap;
+  gap: 1rem;
 
   p {
     width: 1rem;
@@ -20,7 +20,7 @@
     width: calc(42% - 1rem);
   }
 
-  > div + div {
+  div + div {
     display: flex;
     flex-direction: column;
   }
@@ -33,19 +33,24 @@
   .select-holder:nth-of-type(2) {
     width: calc(31% - 1rem);
   }
+}
 
-  button {
-    width: 8rem;
-    padding-block: 0.75rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffffff;
-    background-color: #16b142;
-  }
+.filterButton {
+  width: 8rem;
+  padding-block: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #16b142;
+}
 
-  .inactive {
-    display: none;
-  }
+.buttonHolder {
+  width: 100%;
+  padding-top: 1.5rem;
+  border-top: 1px solid #a5a3a3;
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
 }

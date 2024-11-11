@@ -4,6 +4,7 @@ import Header from './components/header';
 import createDropdown from './utils/dropdown';
 
 const root = document.getElementById('root');
+
 const keys = [
   'Code',
   'Account type',

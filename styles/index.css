@@ -40,15 +40,6 @@ label {
   padding-bottom: 1rem;
 }
 
-.button-holder {
-  width: 100%;
-  padding-top: 1.5rem;
-  border-top: 1px solid #a5a3a3;
-  display: flex;
-  justify-content: end;
-  gap: 1rem;
-}
-
 .exit-holder {
   width: 1rem;
 
