@@ -7,7 +7,6 @@ import Operator from './operator';
 import search from './search';
 import Select from './select';
 
-
 export default function Filter(parent, options, state, setState) {
   const filterContainer = createNode(parent, {
     tag: 'div',
