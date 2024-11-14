@@ -1,5 +1,7 @@
 import styles from '../../styles/footer.module.css';
 import createNode from '../utils/createNode';
+import left from '../../assets/images/left.svg';
+import right from '../../assets/images/right.svg';
 
 function createFooterContainer(root) {
   return createNode(root, {
@@ -71,7 +73,7 @@ function createPrevButton(parent, state, setState) {
   const prevBtn = createNode(parent, {
     tag: 'img',
     classes: [styles.paginationButton],
-    src: './design/left.svg',
+    src: left,
     alt: 'Previous',
     dataset: {
       disabled: state.currentPage === 1,
@@ -90,7 +92,7 @@ function createNextButton(parent, state, setState) {
   const nextBtn = createNode(parent, {
     tag: 'img',
     classes: [styles.paginationButton],
-    src: './design/right.svg',
+    src: right,
     alt: 'Next',
     dataset: {
       disabled: Math.ceil(state.totalItems / state.itemsPerPage) === state.currentPage,
