@@ -1,4 +1,5 @@
 import '../styles/index.css';
+import createFooter from './components/footer';
 import Filter from './components/filter';
 import Header from './components/header';
 import createDropdown from './utils/dropdown';
@@ -22,6 +23,8 @@ const keys = [
 function wrapper(state, setState) {
   root.innerHTML = '';
   Header(root, keys, state, setState);
+
+}
   Filter(
     root,
     [
@@ -34,7 +37,8 @@ function wrapper(state, setState) {
   );
   createDropdown(root, state, setState);
 }
-useState({left: [], right: [], filters: [{columns: '', operators: '', value: ''}]}, wrapper);
+useState({left: [], right: [], filters: [{columns: '', operators: '', value: ''}],itemsPerPage: 10, currentPage: 1, totalItems: 100}, wrapper);
+
 
 function useState(initial, render) {
   let state = initial;
@@ -47,3 +51,4 @@ function useState(initial, render) {
   render(state, setState);
   return [state, setState];
 }
+
