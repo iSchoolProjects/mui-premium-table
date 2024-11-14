@@ -1,4 +1,5 @@
 import '../styles/index.css';
+import createFooter from './components/footer';
 import Header from './components/header';
 
 const root = document.getElementById('root');
@@ -19,8 +20,9 @@ const keys = [
 function wrapper(state, setState) {
   root.innerHTML = '';
   Header(root, keys, state, setState);
+  createFooter(root, state, setState);
 }
-useState({}, wrapper);
+useState({itemsPerPage: 10, currentPage: 1, totalItems: 100}, wrapper);
 
 function useState(initial, render) {
   let state = initial;
@@ -33,3 +35,4 @@ function useState(initial, render) {
   render(state, setState);
   return [state, setState];
 }
+
