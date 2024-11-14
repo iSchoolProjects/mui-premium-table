@@ -9,7 +9,7 @@ export default function Header(headerParent, keys, current, setCurrent) {
   });
 
   for (const idx in keys) {
-    const key = keys[idx];
+    const key = keys[idx].label;
     let left = 0;
     let right = 0;
     if (current.left.includes(key)) {
