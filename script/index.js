@@ -1,23 +1,23 @@
 import '../styles/index.css';
+import data from './components/data';
 import Filter from './components/filter';
 import createFooter from './components/footer';
 import Header from './components/header';
+import generateRows from './components/rows';
 import createDropdown from './utils/dropdown';
 
 const root = document.getElementById('root');
 
 const keys = [
-  'Code',
-  'Account type',
-  'Name',
-  'Street name',
-  'House number',
-  'Postal code',
-  'City',
-  'Email address',
-  'Phone number',
-  'Mobile number',
-  'Actions',
+  {label: 'Code', key: 'code'},
+  {label: 'Name', key: 'name'},
+  {label: 'Street name', key: 'addressIdObject.streetName'},
+  {label: 'House number', key: 'addressIdObject.houseNumber'},
+  {label: 'Postal code', key: 'addressIdObject.postalCode'},
+  {label: 'City', key: 'addressIdObject.city'},
+  {label: 'Email address', key: 'emailAddress'},
+  {label: 'Phone number', key: 'phoneNumber'},
+  {label: 'Mobile number', key: 'mobileNumber'},
 ];
 
 function wrapper(state, setState) {
@@ -35,6 +35,7 @@ function wrapper(state, setState) {
     setState
   );
   createDropdown(root, state, setState);
+  generateRows(root, data, keys, state);
   createFooter(root, state, setState);
 }
 useState(

@@ -12,6 +12,8 @@
 .key {
   display: flex;
   order: var(--x-order);
+  min-width: 10rem;
+  padding: 0 1.5rem;
 }
 
 .item {
@@ -21,7 +23,6 @@
   color: #637381;
   cursor: pointer;
   position: relative;
-  padding: 0 1.5rem;
 
   &[data-sort='1']::after,
   &[data-sort='2']::after {

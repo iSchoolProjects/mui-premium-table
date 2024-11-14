@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+
+  div {
+    min-width: 10rem;
+    padding: 1.5rem;
+  }
+}
+
+.cell {
+  order: var(--x-order);
+}
