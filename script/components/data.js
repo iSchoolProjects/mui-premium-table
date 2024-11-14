@@ -1,4 +1,4 @@
-[
+const data = [
   {
     tenantId: 1001,
     id: 'f691454d-fd3c-4485-beed-53a10fa617e1',
@@ -6,7 +6,7 @@
     isOrgUnitAccount: false,
     externalId: null,
     name: 'Sprinting233',
-    code: null,
+    code: '1',
     entityTypeEnum: 1,
     accountTypesEnums: 39,
     cocNumber: 13,
@@ -378,7 +378,7 @@
     isOrgUnitAccount: false,
     externalId: null,
     name: 'ttttttttttttttttttt',
-    code: null,
+    code: '14',
     entityTypeEnum: 1,
     accountTypesEnums: 1,
     cocNumber: 1,
@@ -449,3 +449,12 @@
     },
   },
 ];
+
+// filter(data,key,operator,value){
+//   switch(operatore){
+//     case 'contains':
+//         return data.filter(ele=>ele[key].contains(value))
+//   }
+// }
+
+export default data;

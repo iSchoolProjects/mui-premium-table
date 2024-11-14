@@ -1,3 +1,8 @@
+:root {
+  --menu-item: 0;
+  --x-order: 0;
+}
+
 body {
   background-color: rgb(255, 255, 255);
 }
@@ -10,17 +15,17 @@ input {
   width: 100%;
   border: none;
   border-radius: 0.25rem;
-  background-color: #e4e4e4;
+  background-color: #f4f6f8;
   margin-top: 0.5rem;
 }
 
 label {
-  color: #a5a3a3;
+  color: #637381;
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-input:focus + label {
+.input-holder:focus-within label {
   color: #000000;
 
   /* dovrsit kasnije */
@@ -28,17 +33,11 @@ input:focus + label {
 
 .filter-holder {
   width: 100%;
+  max-width: 35rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.button-holder {
-  width: 100%;
-  padding-top: 1.5rem;
-  border-top: 1px solid #a5a3a3;
-  display: flex;
-  justify-content: end;
+  padding-bottom: 1rem;
 }
 
 .exit-holder {
@@ -48,11 +47,21 @@ input:focus + label {
   display: flex;
   justify-content: center;
   align-items: end;
+  margin-right: auto;
 }
 
 p {
   margin-block: 0 0.25rem;
   font-size: 1.5rem;
+}
+
+.operator-holder {
+  display: flex;
+  align-items: end;
+}
+
+.inactive {
+  display: none;
 }
 
 * {
