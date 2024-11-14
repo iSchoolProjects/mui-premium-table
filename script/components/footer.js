@@ -1,7 +1,7 @@
-import styles from '../../styles/footer.module.css';
-import createNode from '../utils/createNode';
 import left from '../../assets/images/left.svg';
 import right from '../../assets/images/right.svg';
+import styles from '../../styles/footer.module.css';
+import createNode from '../utils/createNode';
 
 function createFooterContainer(root) {
   return createNode(root, {
