@@ -22,7 +22,7 @@ function wrapper(state, setState) {
   Header(root, keys, state, setState);
   createDropdown(root, state, setState);
 }
-useState({left: [], right: []}, wrapper);
+useState({left: [], right: [], hiddenKeys: []}, wrapper);
 
 function useState(initial, render) {
   let state = initial;

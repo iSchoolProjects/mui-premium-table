@@ -12,6 +12,10 @@
 .key {
   display: flex;
   order: var(--x-order);
+
+  &[data-hidden='true'] {
+    display: none;
+  }
 }
 
 .item {

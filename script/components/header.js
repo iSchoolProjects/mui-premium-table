@@ -38,6 +38,7 @@ export default function Header(headerParent, keys, current, setCurrent) {
       tag: 'div',
       classes: [styles.key],
       styles: {'--x-order': left || right},
+      dataset: {hidden: current.hiddenKeys.includes(key)},
     });
     createNode(keyHolder, {
       tag: 'div',

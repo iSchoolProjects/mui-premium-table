@@ -8,12 +8,26 @@ export default function createDropdown(parent, state, setState) {
     dataset: {dropdownOpen: state.dropdownOpen},
     styles: {'--menu-item': state.menuItem},
   });
+
   const options = [
     {value: 'unsort', text: 'Unsort', onclick: () => setState((prev) => ({...prev, sort: 0}))},
     {value: 1, text: 'Sort by ASC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 1}))},
     {value: 2, text: 'Sort by DESC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 2}))},
     {value: 'filter', text: 'Filter'},
-    {value: 'hide', text: 'Hide'},
+    {
+      value: 'hide',
+      text: 'Hide',
+      key: state.key,
+      onclick: () =>
+        setState((prev) => ({
+          ...prev,
+          hiddenKeys: state.hiddenKeys.includes(state.key)
+            ? prev.hiddenKeys.filter((l) => l !== state.key)
+            : prev.hiddenKeys.concat(state.key),
+          hideKey: false,
+          dropdownOpen: false,
+        })),
+    },
     {value: 'show_columns', text: 'Show Columns'},
     {value: 'group_by_code', text: 'Group by Code'},
     {
@@ -26,7 +40,16 @@ export default function createDropdown(parent, state, setState) {
           dropdownOpen: false,
         })),
     },
-    {value: 'pin_right', text: 'Pin to Right', onclick: () => setState((prev) => ({...prev, right: prev.right.concat(state.key)}))},
+    {
+      value: 'pin_right',
+      text: state.right.includes(state.key) ? 'Unpin right' : 'Pin to Right',
+      onclick: () =>
+        setState((prev) => ({
+          ...prev,
+          right: state.right.includes(state.key) ? prev.right.filter((k) => k !== state.key) : prev.right.concat(state.key),
+          dropdownOpen: false,
+        })),
+    },
   ];
 
   options.forEach((option) => {
