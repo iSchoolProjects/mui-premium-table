@@ -1,23 +1,7 @@
+import ellipsisVertical from '../../assets/images/ellipsis-vertical.svg';
 import * as styles from '../../styles/header.module.css';
 import createNode from '../utils/createNode';
 
-// {}
-/**
- * 
- *const keys = [
-  'Code',
-  'Account type',
-  'Name',
-  'Street name',
-  'House number',
-  'Postal code',
-  'City',
-  'Email address',
-  'Phone number',
-  'Mobile number',
-  'Actions',
-];
- */
 export default function Header(headerParent, keys, current, setCurrent) {
   const container = createNode(headerParent, {
     tag: 'div',
@@ -56,7 +40,7 @@ export default function Header(headerParent, keys, current, setCurrent) {
     });
     createNode(imageHolder, {
       tag: 'img',
-      src: './assets/images/ellipsis-vertical.svg',
+      src: ellipsisVertical,
       dataset: current.key === key ? current : null,
     }).addEventListener('click', function () {
       setCurrent((prev) => ({...prev, key, dropdownOpen: true, menuItem: idx}));
