@@ -23,6 +23,7 @@ export default function createDropdown(parent, state, setState) {
           dropdownOpen: false,
         })),
     },
+    
     {value: 'hide', text: 'Hide'},
     {value: 'show_columns', text: 'Show Columns'},
     {value: 'group_by_code', text: 'Group by Code'},
