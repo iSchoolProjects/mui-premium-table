@@ -44,8 +44,16 @@ export default function createDropdown(parent, state, setState) {
           dropdownOpen: false,
         })),
     },
-    {value: 'show_columns', text: 'Show Columns'},
     {value: 'group_by_code', text: `Group by ${state.key}`},
+    {
+      value: 'show_columns',
+      text: 'Show Columns',
+      onclick: () =>
+        setState((prev) => ({
+          ...prev,
+          columnsList: true,
+        })),
+    },
     {
       value: 'pin_left',
       text: state.left.includes(state.key) ? 'Unpin left' : 'Pin to Left',

@@ -4,6 +4,7 @@ import Filter from './components/filter';
 import createFooter from './components/footer';
 import Header from './components/header';
 import generateRows from './components/rows';
+import Columns from './utils/columns';
 import createDropdown from './utils/dropdown';
 
 const root = document.getElementById('root');
@@ -37,6 +38,17 @@ function wrapper(state, setState) {
   createDropdown(root, state, setState);
   generateRows(root, data, keys, state);
   createFooter(root, state, setState);
+
+  Columns(root, state, setState, keys);
+  document.querySelectorAll('input').forEach((input) => {
+    input.addEventListener('focus', (e) => {
+      setState((prev) => ({...prev, focus: e.target.name}));
+    });
+    //     input.addEventListener('blur', (e) => {
+    //       console.log('ssss')
+    //       setState(prev=>({...prev,focus: null}))
+    // })
+  });
 }
 useState(
   {

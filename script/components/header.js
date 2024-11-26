@@ -7,9 +7,9 @@ export default function Header(headerParent, keys, current, setCurrent) {
     tag: 'div',
     classes: [styles.header],
   });
-
   for (const idx in keys) {
     const key = keys[idx].label;
+    if (current.hiddenKeys.includes(key)) continue;
     let left = 0;
     let right = 0;
     if (current.left.includes(key)) {
