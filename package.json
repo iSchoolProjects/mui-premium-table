@@ -10,7 +10,8 @@
     "format:fix": "prettier . --write --config .prettierrc.js",
     "stylelint": "stylelint \"**/*.css\"",
     "prettier": "prettier . --write --config .prettierrc.js",
-    "postinstall": "bash ./scripts/postinstall.sh"
+    "postinstall": "bash ./scripts/postinstall.sh",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",

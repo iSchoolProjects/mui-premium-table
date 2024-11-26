@@ -1,4 +1,4 @@
-[
+const data = [
   {
     tenantId: 1001,
     id: 'f691454d-fd3c-4485-beed-53a10fa617e1',
@@ -6,7 +6,7 @@
     isOrgUnitAccount: false,
     externalId: null,
     name: 'Sprinting233',
-    code: null,
+    code: '1',
     entityTypeEnum: 1,
     accountTypesEnums: 39,
     cocNumber: 13,
@@ -20,9 +20,9 @@
     isSupplyBlockage: false,
     orgPersonId: null,
     languageId: 4,
-    emailAddress: null,
-    mobileNumber: null,
-    phoneNumber: null,
+    emailAddress: 'a@a.com',
+    mobileNumber: '0547893211',
+    phoneNumber: '061432567',
     addressId: '7ddc6b9e-50eb-4b6b-8356-34382c103132',
     longitude: '1',
     latitude: '1',
@@ -204,7 +204,7 @@
     orgUnitId: '90000000-0000-4000-8000-000000000002',
     isOrgUnitAccount: false,
     externalId: null,
-    name: null,
+    name: 'Arno',
     code: null,
     entityTypeEnum: 1,
     accountTypesEnums: 12,
@@ -219,9 +219,9 @@
     isSupplyBlockage: false,
     orgPersonId: null,
     languageId: 3,
-    emailAddress: null,
-    mobileNumber: null,
-    phoneNumber: null,
+    emailAddress: 'c@c.com',
+    mobileNumber: '349735723579',
+    phoneNumber: '0926578432',
     addressId: 'f2b10ffe-a87c-425d-b766-7a94312a7e54',
     longitude: null,
     latitude: null,
@@ -310,12 +310,12 @@
     addressIdObject: {
       tenantId: 1001,
       id: 'f2b10ffe-a87c-425d-b766-7a94312a7e54',
-      streetName: null,
-      houseNumber: null,
+      streetName: 'Abbey Road',
+      houseNumber: '123',
       houseNumberAddition: null,
-      postalCode: null,
+      postalCode: '45000',
       province: null,
-      city: null,
+      city: 'London',
       countryIso: null,
       defaultLongitude: null,
       defaultLatitude: null,
@@ -377,12 +377,13 @@
     orgUnitId: '90000000-0000-4000-8000-000000000002',
     isOrgUnitAccount: false,
     externalId: null,
-    name: 'ttttttttttttttttttt',
-    code: null,
+    name: 'Brian',
+    code: '14',
     entityTypeEnum: 1,
     accountTypesEnums: 1,
     cocNumber: 1,
     cocApiCallresult: null,
+    addressIdObject: {streetName: 'Down Road 12', houseNumber: '67', postalCode: '1234', city: 'Berlin'},
     searchName: null,
     vihbNumber: null,
     vatnr: null,
@@ -392,9 +393,9 @@
     isSupplyBlockage: false,
     orgPersonId: null,
     languageId: 3,
-    emailAddress: null,
-    mobileNumber: null,
-    phoneNumber: 'sadf',
+    emailAddress: 'b@b.com',
+    mobileNumber: '0986543234',
+    phoneNumber: '09178943212',
     addressId: 'bb0143c8-44f0-4980-aa29-03168d03b252',
     longitude: null,
     latitude: null,
@@ -449,3 +450,12 @@
     },
   },
 ];
+
+// filter(data,key,operator,value){
+//   switch(operatore){
+//     case 'contains':
+//         return data.filter(ele=>ele[key].contains(value))
+//   }
+// }
+
+export default data;

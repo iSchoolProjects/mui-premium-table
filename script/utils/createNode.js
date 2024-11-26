@@ -29,6 +29,7 @@ export default function createNode(parentNode, nodeProps) {
   if (nodeProps['for']) element.htmlFor = nodeProps['for'];
   if (nodeProps['placeholder']) element.placeholder = nodeProps['placeholder'];
   if (nodeProps['tabindex']) element.tabindex = nodeProps['tabindex'];
+  if (nodeProps['disabled']) element.disabled = nodeProps['disabled'];
   if (nodeProps['dataset']) {
     for (const key in nodeProps['dataset']) {
       element.dataset[key] = nodeProps.dataset[key];

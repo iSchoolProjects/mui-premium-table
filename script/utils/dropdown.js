@@ -6,14 +6,20 @@ export default function createDropdown(parent, state, setState) {
     tag: 'div',
     classes: [styles.select],
     dataset: {dropdownOpen: state.dropdownOpen},
-    styles: {'--menu-item': state.menuItem},
+    styles: {
+      '--menu-item':
+        state.left.indexOf(state.key) > -1
+          ? state.left.indexOf(state.key)
+          : state.right.indexOf(state.key) > -1
+            ? state.right.indexOf(state.key)
+            : state.menuItem,
+    },
   });
 
   const options = [
     {value: 'unsort', text: 'Unsort', onclick: () => setState((prev) => ({...prev, sort: 0}))},
     {value: 1, text: 'Sort by ASC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 1}))},
     {value: 2, text: 'Sort by DESC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 2}))},
-    {value: 'filter', text: 'Filter'},
     {
       value: 'hide',
       text: 'Hide',
@@ -28,17 +34,31 @@ export default function createDropdown(parent, state, setState) {
           dropdownOpen: false,
         })),
     },
+    {
+      value: 'filter',
+      text: 'Filter',
+      onclick: () =>
+        setState((prev) => ({
+          ...prev,
+          filterOpen: !prev.filterOpen,
+          dropdownOpen: false,
+        })),
+    },
     {value: 'show_columns', text: 'Show Columns'},
-    {value: 'group_by_code', text: 'Group by Code'},
+    {value: 'group_by_code', text: `Group by ${state.key}`},
     {
       value: 'pin_left',
       text: state.left.includes(state.key) ? 'Unpin left' : 'Pin to Left',
       onclick: () =>
-        setState((prev) => ({
-          ...prev,
-          left: state.left.includes(state.key) ? prev.left.filter((k) => k !== state.key) : prev.left.concat(state.key),
-          dropdownOpen: false,
-        })),
+        setState((prev) => {
+          const isPinnedLeft = prev.left.includes(state.key);
+          return {
+            ...prev,
+            left: isPinnedLeft ? prev.left.filter((key) => key !== state.key) : prev.left.concat(state.key),
+            right: prev.right.filter((key) => key !== state.key),
+            dropdownOpen: false,
+          };
+        }),
     },
     {
       value: 'pin_right',
