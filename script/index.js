@@ -39,7 +39,15 @@ function wrapper(state, setState) {
   createFooter(root, state, setState);
 }
 useState(
-  {left: [], right: [], hiddenKeys: [], filters: [{columns: '', operators: '', value: ''}], itemsPerPage: 10, currentPage: 1, totalItems: 100},
+  {
+    left: [],
+    right: [],
+    hiddenKeys: [],
+    filters: [{columns: '', operators: '', value: ''}],
+    itemsPerPage: 10,
+    currentPage: 1,
+    totalItems: 100,
+  },
   wrapper
 );
 
