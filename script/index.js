@@ -3,8 +3,8 @@ import data from './components/data';
 import Filter from './components/filter';
 import createFooter from './components/footer';
 import Header from './components/header';
-import search from './components/search-bar';
 import generateRows from './components/rows';
+import search from './components/search-bar';
 import createDropdown from './utils/dropdown';
 
 const root = document.getElementById('root');
@@ -23,7 +23,7 @@ const keys = [
 
 function wrapper(state, setState) {
   root.innerHTML = '';
-  search(root, keys, state);
+  search(root, keys, data, setState);
   Header(root, keys, state, setState);
 
   Filter(
@@ -37,11 +37,11 @@ function wrapper(state, setState) {
     setState
   );
   createDropdown(root, state, setState);
-  generateRows(root, data, keys, state);
+  generateRows(root, keys, state);
   createFooter(root, state, setState);
 }
 useState(
-  {left: [], right: [], filters: [{columns: '', operators: '', value: ''}], itemsPerPage: 10, currentPage: 1, totalItems: 100},
+  {left: [], data, right: [], filters: [{columns: '', operators: '', value: ''}], itemsPerPage: 10, currentPage: 1, totalItems: 100},
   wrapper
 );
 

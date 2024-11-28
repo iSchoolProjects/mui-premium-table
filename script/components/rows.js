@@ -1,12 +1,12 @@
 import * as styles from '../../styles/rows.module.css';
 import createNode from '../utils/createNode';
 
-export default function generateRows(parent, data, keys, state) {
+export default function generateRows(parent, keys, state) {
   const dataTable = createNode(parent, {
     tag: 'div',
   });
 
-  for (const d of data) {
+  for (const d of state.data) {
     const row = createNode(dataTable, {
       tag: 'div',
       classes: [styles.row],
