@@ -17,7 +17,7 @@ export default function Searchbar(searchBarparent, keys, data) {
     });
 
     filteredData.forEach((item) => {
-       createNode(resultsContainer, {tag: 'div', classes: [styles.resultItem], textContent: item[keys[0]]});
+      createNode(resultsContainer, {tag: 'div', classes: [styles.resultItem], textContent: item[keys[0]]});
     });
   });
 }
