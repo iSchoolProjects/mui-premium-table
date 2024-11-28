@@ -1,4 +1,4 @@
-[
+ [
   {
     tenantId: 1001,
     id: 'f691454d-fd3c-4485-beed-53a10fa617e1',
