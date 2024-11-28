@@ -1,0 +1,117 @@
+.columns {
+  width: 450px;
+  aspect-ratio: 1;
+  background-color: rgb(216, 236, 252);
+  border-radius: 15px;
+
+  .toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 24px;
+  }
+
+  * {
+    font-family: Calibri, sans-serif;
+  }
+
+  .searchInput {
+    background: transparent;
+    border-bottom: 3px solid #000000;
+    border-radius: 0;
+  }
+
+  .toggleSwitch .searchInput {
+    opacity: 0%;
+    width: 0%;
+    height: 0%;
+  }
+
+  .toggleSlider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #cccccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+
+  .toggleSlider::before {
+    position: absolute;
+    content: '';
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ffffff;
+    transition: all 1.4s;
+  }
+
+  input:checked + span {
+    background-color: #00ab55;
+  }
+
+  input:focus + span {
+    box-shadow: 0 0 1px #00ab55;
+  }
+
+  span::before {
+    border-radius: 50%;
+  }
+
+  input:checked + span::before {
+    transform: translateX(20px);
+  }
+
+  .rowHolder {
+    display: flex;
+    gap: 1rem;
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .hideShowButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+    padding: 2rem;
+    border-top: 1px solid #cccccc;
+  }
+
+  .hideAll {
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .showAll {
+    background-color: #00ab55;
+    color: #ffffff;
+    border: none;
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  input,
+  input::placeholder {
+    font-size: 1.5rem;
+  }
+
+  .columnHolder {
+    padding: 1rem;
+  }
+
+  .searchHolder {
+    padding: 1rem;
+  }
+}
