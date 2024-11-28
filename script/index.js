@@ -5,6 +5,7 @@ import createFooter from './components/footer';
 import Header from './components/header';
 import generateRows from './components/rows';
 import search from './components/search-bar';
+import Columns from './utils/columns';
 import createDropdown from './utils/dropdown';
 
 const root = document.getElementById('root');
@@ -39,9 +40,29 @@ function wrapper(state, setState) {
   createDropdown(root, state, setState);
   generateRows(root, keys, state);
   createFooter(root, state, setState);
+
+  Columns(root, state, setState, keys);
+  document.querySelectorAll('input').forEach((input) => {
+    input.addEventListener('focus', (e) => {
+      setState((prev) => ({...prev, focus: e.target.name}));
+    });
+    //     input.addEventListener('blur', (e) => {
+    //       console.log('ssss')
+    //       setState(prev=>({...prev,focus: null}))
+    // })
+  });
 }
 useState(
-  {left: [], data, right: [], filters: [{columns: '', operators: '', value: ''}], itemsPerPage: 10, currentPage: 1, totalItems: 100},
+  {
+    data,
+    left: [],
+    hiddenKeys: [],
+    right: [],
+    filters: [{columns: '', operators: '', value: ''}],
+    itemsPerPage: 10,
+    currentPage: 1,
+    totalItems: 100,
+  },
   wrapper
 );
 

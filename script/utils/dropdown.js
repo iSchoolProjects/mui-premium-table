@@ -21,6 +21,20 @@ export default function createDropdown(parent, state, setState) {
     {value: 1, text: 'Sort by ASC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 1}))},
     {value: 2, text: 'Sort by DESC', key: 'sort', onclick: () => setState((prev) => ({...prev, sort: 2}))},
     {
+      value: 'hide',
+      text: 'Hide',
+      key: state.key,
+      onclick: () =>
+        setState((prev) => ({
+          ...prev,
+          hiddenKeys: state.hiddenKeys.includes(state.key)
+            ? prev.hiddenKeys.filter((l) => l !== state.key)
+            : prev.hiddenKeys.concat(state.key),
+          hideKey: false,
+          dropdownOpen: false,
+        })),
+    },
+    {
       value: 'filter',
       text: 'Filter',
       onclick: () =>
@@ -30,9 +44,16 @@ export default function createDropdown(parent, state, setState) {
           dropdownOpen: false,
         })),
     },
-    {value: 'hide', text: 'Hide'},
-    {value: 'show_columns', text: 'Show Columns'},
     {value: 'group_by_code', text: `Group by ${state.key}`},
+    {
+      value: 'show_columns',
+      text: 'Show Columns',
+      onclick: () =>
+        setState((prev) => ({
+          ...prev,
+          columnsList: true,
+        })),
+    },
     {
       value: 'pin_left',
       text: state.left.includes(state.key) ? 'Unpin left' : 'Pin to Left',
@@ -49,9 +70,13 @@ export default function createDropdown(parent, state, setState) {
     },
     {
       value: 'pin_right',
-      text: 'Pin to Right',
+      text: state.right.includes(state.key) ? 'Unpin right' : 'Pin to Right',
       onclick: () =>
-        setState((prev) => ({...prev, right: prev.right.concat(state.key), left: prev.left.filter((key) => key !== state.key)})),
+        setState((prev) => ({
+          ...prev,
+          right: state.right.includes(state.key) ? prev.right.filter((k) => k !== state.key) : prev.right.concat(state.key),
+          dropdownOpen: false,
+        })),
     },
   ];
 

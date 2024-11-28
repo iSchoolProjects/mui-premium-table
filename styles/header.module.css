@@ -14,6 +14,10 @@
   order: var(--x-order);
   min-width: 10rem;
   padding: 0 1.5rem;
+
+  &[data-hidden='true'] {
+    display: none;
+  }
 }
 
 .item {
